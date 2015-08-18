@@ -12,7 +12,7 @@ class Nslookup():
         try:
             dns_cmd = Popen(nsl, shell=True, stdout=PIPE, stderr=PIPE)
             stdout, stderr = dns_cmd.communicate()
-            print (stdout, stderr)
+            #print (stdout, stderr)
             result = stdout.rstrip().split("\t")
             return result[-1].replace('Address:', '').split("\n")[-1].replace("name = ", '').lstrip()
 
@@ -24,6 +24,6 @@ class Nslookup():
 
 
 """Test it"""
-bla = Nslookup("10.1.1.1")
+bla = Nslookup("www.google.com")
 
 print bla.dns_client()
